@@ -6,12 +6,7 @@ export const userRouter = Router()
 userRouter.get('/user(name)?', async (req: Request, res: Response,) => {
     try {
         const result = await userModel.find()
-        // res.json(result)
-        res.write(
-            `<div>
-<h1>How are you man?</h1>
-</div>`)
-        res.end()
+        res.json(result)
     } catch (err) {
         res.status(404).json({error: err})
     }
