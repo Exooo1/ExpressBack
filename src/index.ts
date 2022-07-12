@@ -21,10 +21,10 @@ const PORT = process.env.PORT || 3000;
 const start = async () => {
     try {
         await mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useFindAndModify: true})
-        app.use((req: Request, res: Response, next: NextFunction) => {
-            if (req.hostname !== 'localhost') res.redirect(303, 'http://localhost:8080/')
-            next()
-        })
+        // app.use((req: Request, res: Response, next: NextFunction) => {
+        //     if (req.hostname !== 'localhost') res.redirect(303, 'http://localhost:8080/')
+        //     next()
+        // })
         app.get('/', (req: Request, res: Response) => {
             res.send('This main page in Server!');
         });
