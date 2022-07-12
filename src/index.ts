@@ -19,7 +19,7 @@ app.use(express.json())
 // arrayRoutes.some(item => {
 //     app.use(item)
 // })
-// const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 //
 // app.post('/profile', upload.single('avatar'), function (req, res, next) {
 //     // req.file - файл `avatar`
@@ -51,4 +51,4 @@ app.use(express.json())
 app.get('/', (req, res) => {
     res.send('Hello')
 })
-app.listen('8080')
+app.listen(PORT)
