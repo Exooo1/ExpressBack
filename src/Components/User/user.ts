@@ -2,11 +2,16 @@ import {Request, Response, Router} from 'express'
 import {userModel} from './userScheme';
 
 export const userRouter = Router()
+const response = (errors: string, items: any[]) => {
+    return {
+        errors, items, resultCode: Math.ceil(Math.random())
+    }
+}
 
 userRouter.get('/user(name)?', async (req: Request, res: Response,) => {
     try {
         const result = await userModel.find()
-        res.json(result)
+        res.json(response('', result))
     } catch (err) {
         res.status(404).json({error: err})
     }
@@ -30,6 +35,8 @@ userRouter.get('/user/:id', async (req: Request<{ id: string }>, res: Response) 
         res.status(404).json({error: 'Not found bro'})
     }
 })
+
+console.log('s')
 
 userRouter.put('/user/:id', async (req: Request, res: Response) => {
     try {

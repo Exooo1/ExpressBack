@@ -31,6 +31,7 @@ const start = async () => {
     try {
         await mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useFindAndModify: true})
         app.use((req: Request, res: Response, next: NextFunction) => {
+            console.log(req.hostname)
             if (req.hostname !== 'localhost') res.redirect(303, 'http://localhost:8080/')
             next()
         })
