@@ -4,10 +4,6 @@ import dotenv from 'dotenv';
 import {arrayRoutes, corsConfig} from './indexConfig';
 import vhost from 'vhost'
 import {apiVhost} from './Components/Vhost/vhost';
-import multer from 'multer'
-
-const upload = multer({dest: 'uploads/'})
-
 
 dotenv.config();
 const app = express();
@@ -21,12 +17,6 @@ arrayRoutes.some(item => {
 })
 const PORT = process.env.PORT || 3000;
 
-app.post('/profile', upload.single('avatar'), function (req, res, next) {
-    // req.file - файл `avatar`
-    // req.body сохранит текстовые поля, если они будут
-    res.send('')
-})
-console.log('')
 const start = async () => {
     try {
         await mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useFindAndModify: true})
