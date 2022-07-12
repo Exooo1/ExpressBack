@@ -33,7 +33,7 @@ const start = async () => {
         });
         app.use((req: Request, res: Response) => res.status(500))
     } catch (err) {
-        throw new Error('Server don\'t work...')
+        throw new Error('Server don\'t work...' + err)
     }
 }
 start()
