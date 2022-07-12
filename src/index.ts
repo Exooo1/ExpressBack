@@ -26,7 +26,7 @@ app.post('/profile', upload.single('avatar'), function (req, res, next) {
     // req.body сохранит текстовые поля, если они будут
     res.send('')
 })
-
+console.log('')
 const start = async () => {
     try {
         await mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useFindAndModify: true})
